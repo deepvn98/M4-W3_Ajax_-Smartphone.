@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartPhone</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+
+    </script>
+</head>
+<body>
+
+<!--form thêm mới -->
+<form action="">
+    <div>
+        <label>Name</label><br>
+        <input type="text" name="name" id="idname" placeholder="Producer">
+    </div>
+    <div>
+        <label>Model</label><br>
+        <input type="text" name="model" id="idmodel" placeholder="Model">
+    </div>
+    <div>
+        <label>Name</label><br>
+        <input type="text" name="price" id="idprice" placeholder="Price">
+    </div>
+    <div>
+        <button type="submit" onclick="addPhone()">AddNew</button>
+    </div>
+</form>
+<!--------------------------------------->
+<!--Danh sách sản phẩm -->
+<h1>Smartphone List</h1>
+<table id="smartphoneList">
+    <tr>
+        <td>Producer</td>
+        <td>Model</td>
+        <td>Price</td>
+        <td>Delete</td>
+    </tr>
+    <th:block th:each="smartphone: ${smartphones}">
+        <tr>
+            <td th:text="${smartphone.producer}"></td>
+            <td th:text="${smartphone.model}"></td>
+            <td th:text="${smartphone.price}"></td>
+            <td><a class="deleteSmartphone" th:href="${smartphone.getId()}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+
+</html>
